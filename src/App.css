@@ -1,0 +1,192 @@
+
+*{
+  margin:0px;
+  padding:0px;
+}
+.formContainer{
+  display: flex;
+  flex-direction: column;
+  background-color:#343434;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.fieldBox {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+small{
+  color:#FF0000;
+  letter-spacing: 0.5px;
+}
+label{
+  color: white;
+  margin: 0.3rem 0rem;
+}
+
+input {
+  outline: none;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: black;
+  width: 200px;
+  margin: .5rem 0rem;
+  color: white;
+}
+
+
+.add{
+  width: 45px;
+  background-color: black;
+  color: white;
+  height: 45px;
+  border-radius: 50%;
+  margin: .5rem 0rem;
+}
+button[type="submit"]{
+  width: 100px;
+  height: 40px;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  margin: 1rem 0rem;
+}
+.delete{
+  width: 40px;
+  background-color: black;
+  color: white;
+  height: 35px;
+  margin: 0 .5rem;
+  border-radius:5px ;
+}
+
+.fieldBox {
+  margin: 5px 0;
+}
+.fieldBox h3 {
+ color: white;
+ margin: .5rem 0rem;
+}
+.home-head{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.image-home{
+  width: 750px;
+  height: 500px;
+}
+.home-head h1{
+  margin: 0.8rem 0rem;
+}
+
+.started{
+  color: white;
+  background-color:#e75667;
+  border: none;
+  width: 150px;
+  height: 50px;
+  border-radius: 510px;
+  cursor: pointer;
+  margin: 1rem 0rem;
+
+}
+
+.card-list{
+  width: 600px;
+  height:300px;
+  background-color:#dbcbcf;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  margin: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+}
+
+.card-head{
+  display: flex;
+  justify-content: center;
+  gap:20px;
+  flex-wrap: wrap;
+
+}
+
+
+
+.home{
+background-color: #343434;
+color: white;
+border: none;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+cursor: pointer;
+margin: 1rem;
+}
+
+
+.img-card{
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  margin: 0rem 1rem;
+}
+.card-list p{
+  color: black;
+  font-size: 15px;
+}
+
+
+.home-back-head{
+  display: flex;
+
+}
+.back{
+  background-color: #e75667;
+  color: black;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+height: 50px;
+border-radius: 50%;
+cursor: pointer;
+margin: 1rem;
+}
+
+
+
+.not-found-head{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+textarea{
+  resize: none;
+  width:455px;
+  height: 100px;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  margin: 0.5rem 0rem;
+  color: white;
+  outline: none;
+}
+
+
+.card-list h2 h3 p{
+  margin: 0.3rem 0rem;
+}
