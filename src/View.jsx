@@ -29,23 +29,41 @@ function View() {
         fetchData();
       }, [])
       function GoEdit(id){
-               navigate(`/edit/${id}`)
+        navigate(`/edit/${id}`)
+      
       }
+      
+         
+  const handleDelete = async(id) => {
+    try{
+      alert("Are you want to delete")
+          await axios.delete(`https://61f1b9df072f86001749f34c.mockapi.io/cooker/${id}`)
+          navigate("/list")
+         
+    }
+    catch(error){
+     console.log(error);
+    }
+  }
+      
       if(!viewData){
         return (<>
-        <div>
-          Loading</div>
-          </>)
+        <div className='load'>
+      <img src="https://i.pinimg.com/originals/c4/cb/9a/c4cb9abc7c69713e7e816e6a624ce7f8.gif" alt="loading"/>
+    </div>
+          </>
+          )
       }else{
 
       
       
   return (
     <div className='view-card-head'>
-        
+    
         <div className='view-card'>
         <button className='back-list' onClick={()=>navigate("/list")}><i className="fa-solid fa-arrow-left"></i></button>
         <button className='edit-list' onClick={()=>GoEdit(id)}><i className="fa-regular fa-pen-to-square"></i></button>
+        <button className='del-list' onClick={()=>handleDelete(id)}><i class="fa-solid fa-trash"></i></button>
    <div className='view-img-head'>
     <img src ={viewData.recipePoster} alt="view-image"/>
    </div>

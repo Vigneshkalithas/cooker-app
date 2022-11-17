@@ -1,7 +1,7 @@
 .navbar-head{
     width: 100%;
     height:85px;
-    
+    background-color: transparent;
     color: #27324b;
     display: flex;
     justify-content: space-between;

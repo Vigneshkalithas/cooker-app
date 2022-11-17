@@ -57,8 +57,9 @@ useEffect(() => {
   return (
     <>
     <div className='home-back-head'>
-      <button className='back' onClick={()=>navigate("/create")}><i className="fa-solid fa-arrow-left"></i></button>
-      <button className='home' onClick={()=>navigate("/home")}><i className="fa-solid fa-house"></i></button></div>
+      {/* <button className='back' onClick={()=>navigate("/create")}><i className="fa-solid fa-arrow-left"></i></button> */}
+      {/* <button className='home' onClick={()=>navigate("/home")}><i className="fa-solid fa-house"></i></button> */}
+      </div>
     
     <div className='card-head'>
       {recipe.map((x,index)=>{
@@ -68,7 +69,7 @@ useEffect(() => {
         <div key={index}><img className="img-card" src={x.recipePoster} alt="card-image"></img></div>
         <div>
           <h2>{x.recipeName}</h2>
-          <h3>{x.cookingTime} min</h3>
+          <h4><i class="fa-regular fa-clock"></i> {x.cookingTime} min</h4>
           <h5>{x.ingName}</h5>
           <p>{x.about}</p>
         </div>

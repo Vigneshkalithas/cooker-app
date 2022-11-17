@@ -8,13 +8,13 @@ import { Routes,Route,Link,Navigate,useNavigate} from "react-router-dom";
 import { NotFound } from './NotFound';
 import View from "./View";
 import Edit from './Edit';
+import Navbar from './Navbar';
 
 function App() {
   const navigate = useNavigate();
   return (
     <div className="App">
-      {/* <Home/> */}
-      {/* <ReceipeList/> */}
+      <Navbar />
       <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="/home" element={<Navigate replace to="/"/>} />

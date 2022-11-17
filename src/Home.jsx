@@ -12,8 +12,8 @@ function Home() {
   ]
   return (
  
-    <div>
-      <Navbar />
+    <div >
+      
    <div className="Home-head">
         
         <div className="home-content">
@@ -22,7 +22,7 @@ function Home() {
           <p>Make the family kitchen like a restaurant kitchen more productive at <br/>
           home by cooking for the family or starting a culinary business.With our<br/>
           recipe recipes!</p>
-             <button onClick={()=>navigate("/create")}>Explore Cooking Recipies</button>
+             <button onClick={()=>navigate("/list")}>Explore Cooking Recipies</button>
              <div className="sm-img-head">
               {data.map((x)=>{
                 return(
