@@ -50,7 +50,7 @@ input {
   color: white;
   height: 45px;
   border-radius: 50%;
-  margin: .5rem 0rem;
+  margin: 0.5rem 0rem;
 }
 button[type="submit"]{
   width: 100px;
@@ -190,3 +190,105 @@ textarea{
 .card-list h2 h3 p{
   margin: 0.3rem 0rem;
 }
+.view-card-head{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 2rem;
+}
+.view-card{
+  width: 700px;
+  height:600px;
+  background-color:#ffe4bd;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.view-img-head{
+  display: flex;
+  justify-content: center;
+  
+  /* align-items: center; */
+  
+  
+}
+
+ .view-img-head img{ 
+  width:250px;
+  height:250px;
+  border-radius: 10px;
+  margin: 2rem 0rem;
+}
+.view-texts{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.2rem;
+}
+.view-p , .view-h1, .view-h2 , .view-h5{
+  margin: 0.3rem;
+}
+.view-p{
+  text-align: center;
+}
+
+.back-list{
+  background-color: #fd7a22;
+  border: none; 
+  cursor: pointer;
+  width: 45px;
+  color: white;
+  height: 45px;
+  border-radius: 50%;
+  margin: 0.5rem 0.5rem;
+
+}
+.edit-list{
+  background-color: black;
+  border: none; 
+  cursor: pointer;
+  width: 45px;
+  color: white;
+  height: 45px;
+  border-radius: 50%;
+  margin: 0.5rem 0.5rem;
+}
+
+
+.steps-card-head{
+  width: 350px;
+  height:600px;
+  background-color: #b3a0cd;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+
+}
+.steps-card{
+display: flex;
+flex-direction: column;
+margin: 1rem 2rem;
+}
+
+.step-head{
+  margin: 1rem 0rem;
+}
+
+.step-ul{
+  margin: 0rem 2rem;
+  list-style: none;
+  
+}
+.step-ul li{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: .5rem 0rem;
+  
+}
+.sm-err{
+  margin: 0rem 0.5rem;
+}
+

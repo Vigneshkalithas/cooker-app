@@ -4,6 +4,16 @@
     time:"10 min",
     ingridients:"Water, noodeles , masala",
     about:Noodles are a type of food made from unleavened dough which is rolled flat and cut, stretched or extruded, into long strips or strings. Noodles are a staple food in many cultures,
+    steps:[
+      "Use a large pot."
+"Load up the pot with lots of water."
+"Salt the water."
+"Bring the water to a full, rolling boil."
+"Stir to keep the pasta from sticking."
+"Test the pasta two minutes before it's “ready”."
+"Save a scoop of pasta water."
+"Drain, toss with sauce, and serve hot."
+]
 
 
   },

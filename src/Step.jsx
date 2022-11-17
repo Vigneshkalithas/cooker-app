@@ -8,7 +8,7 @@ const formValidationSchema = yup.object({
   recipeName: yup.string().required("Enter recipe name"),
   recipePoster: yup.string().url().required("Kindly upload poster"),
   cookingTime: yup.number().min(1).required("Enter cooking time"),
-  step: yup.array().of(yup.string().required("Cannot be empty")).required(),
+  steps: yup.array().of(yup.string().required("Cannot be empty")).required(),
   ingName: yup.string().required("Enter ingredient Name"),
   ingQty: yup.number().required("Enter ingredient Qty"),
   recipeType: yup.string().required("Please choose type"),
@@ -19,15 +19,15 @@ const formValidationSchema = yup.object({
 function Step() {
   const navigate = useNavigate()
   const [inputFields, setInputFields] = useState([""]);
-  const step = new Array();
-  step.length = inputFields.length;
+  const [steps , setSteps] = useState([]) ;
+  steps.length = inputFields.length;
   const { values, handleChange, handleBlur, touched, handleSubmit, errors } =
     useFormik({
       initialValues: {
         recipeName: "",
         recipePoster: "",
         cookingTime: "",
-        step: step,
+        steps: steps,
         ingName: "",
         ingQty: "",
         recipeType: "",
@@ -61,6 +61,10 @@ function Step() {
     const copyInputField = [...inputFields];
     copyInputField.splice(index, 1);
     setInputFields(copyInputField);
+     const copySteps = [...steps];
+     copySteps.splice(index,1);
+     setSteps(copySteps)
+     values.steps.splice(index,1)
   }
 
   return (
@@ -75,7 +79,7 @@ function Step() {
             placeholder="Enter Recipe Name"
             onChange={handleChange}
             onBlur={handleBlur}
-            values={values.recipeName}
+            value={values.recipeName}
           />
           <small>
             {errors.recipeName && touched.recipeName ? errors.recipeName : null}
@@ -89,7 +93,7 @@ function Step() {
             placeholder="Enter Recipe Poster"
             onChange={handleChange}
             onBlur={handleBlur}
-            values={values.recipePoster}
+            value={values.recipePoster}
           />
           <small>
             {errors.recipePoster && touched.recipePoster
@@ -105,7 +109,7 @@ function Step() {
             placeholder="Enter Cooking Time"
             onChange={handleChange}
             onBlur={handleBlur}
-            values={values.cookingTime}
+            value={values.cookingTime}
           />
           <small>
             {errors.cookingTime && touched.cookingTime
@@ -113,6 +117,7 @@ function Step() {
               : null}
           </small>
         </div>
+
         <div className="fieldBox">
           
           <label>Steps for Cooking</label>
@@ -127,12 +132,12 @@ function Step() {
             return (
               <div key={index}>
                 <input
-                  name={`step[${index}]`}
+                  name={`steps [${index}]`}
                   placeholder="Add Step"
                   type="text"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  values={values.step[index]}
+                  value={values.steps[index]}
                   required
                 />
                 <button
@@ -142,12 +147,13 @@ function Step() {
                 >
                   <i className="fa-solid fa-trash"></i>
                 </button>
-                <small>{errors.step && touched.step ? errors.step : null}</small>
+                <small>{errors.steps && touched.steps ? errors.steps : null}</small>
               </div>
             );
           })}
         
         </div>
+
         <div className="fieldBox">
           <label>Ingredients</label>
           <div style={{ display: "flex", gap: "10px" }}>
@@ -157,7 +163,7 @@ function Step() {
               placeholder="Ingredient Name"
               onChange={handleChange}
               onBlur={handleBlur}
-              values={values.ingName}
+              value={values.ingName}
             />
             
             <input
@@ -166,13 +172,13 @@ function Step() {
               placeholder="Ingredient Quantity"
               onChange={handleChange}
               onBlur={handleBlur}
-              values={values.ingQty}
+              value={values.ingQty}
             />
             
           </div>
           <div>
-          <small>{errors.ingName && touched.ingName ? errors.ingName : null}</small>
-            <small>{errors.ingQty && touched.ingQty ? errors.ingQty : null}</small>
+          <small className='sm-err'>{errors.ingName && touched.ingName ? errors.ingName : null}</small>
+            <small className='sm-err'>{errors.ingQty && touched.ingQty ? errors.ingQty : null}</small>
           </div>
         </div>
         <div className="fieldBox">
@@ -184,7 +190,7 @@ function Step() {
               type="radio"
               name="recipeType"
               // defaultChecked={values.gender.includes("male")}
-              values={values.recipeType}
+              value="veg"
               onChange={handleChange}
               onBlur={handleBlur}
               id="veg"
@@ -196,9 +202,9 @@ function Step() {
               name="recipeType"
               onChange={handleChange}
               onBlur={handleBlur}
-              values={values.recipeType}
+              value="nonveg"
               // defaultChecked={values.gender.includes("female")}
-              id="nonVeg"
+              id="nonveg"
             />{" "}
           </div>
           <small>
@@ -209,7 +215,7 @@ function Step() {
         <label>About</label>
         <textarea  htmlFor="about" type="textarea" name="about" onChange={handleChange}
               onBlur={handleBlur}
-              values={values.about} id="about" />
+              value={values.about} id="about" />
         <small>
             {errors.about && touched.about ? errors.about : null}
           </small>

@@ -30,12 +30,16 @@ function ReceipeList() {
   },
 ]
 
+function View(id){
+console.log(id)
+navigate(`/view/${id}`)
+}
 let fetchData = async () => {
   try{
     let result =  await axios.get('https://61f1b9df072f86001749f34c.mockapi.io/cooker')
     
     setRecipe(result.data);
-    console.log(result.data);
+    // console.log(result.data);
   }
   catch(error){
     console.log(error);
@@ -48,17 +52,19 @@ let fetchData = async () => {
 useEffect(() => {
   fetchData();
 }, [])
+
+
   return (
     <>
     <div className='home-back-head'>
-      <button className='back' onClick={()=>navigate("/create")}><i class="fa-solid fa-arrow-left"></i></button>
-      <button className='home' onClick={()=>navigate("/home")}><i class="fa-solid fa-house"></i></button></div>
+      <button className='back' onClick={()=>navigate("/create")}><i className="fa-solid fa-arrow-left"></i></button>
+      <button className='home' onClick={()=>navigate("/home")}><i className="fa-solid fa-house"></i></button></div>
     
     <div className='card-head'>
       {recipe.map((x,index)=>{
         return(
           <>
-<div className='card-list'>
+<div className='card-list'  onClick={()=>View(x.id)}>
         <div key={index}><img className="img-card" src={x.recipePoster} alt="card-image"></img></div>
         <div>
           <h2>{x.recipeName}</h2>
