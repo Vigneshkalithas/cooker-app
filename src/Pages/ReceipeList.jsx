@@ -1,7 +1,7 @@
 import React , { useState, useEffect} from 'react';
 import {useNavigate} from "react-router-dom";
 import axios from 'axios';
-import { data }  from "./Helper.js";
+import { data }  from "../Helper/RecipeData";
 
 function ReceipeList() {
   const navigate = useNavigate();

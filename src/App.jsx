@@ -1,20 +1,19 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css';
-import Home from "./Home"
-import ReceipeList from './ReceipeList';
-import Step from "./Step";
+import Home from "./Pages/Home"
+import ReceipeList from './Pages/ReceipeList';
+import Step from "./Pages/Step";
 import { Routes,Route,Link,Navigate,useNavigate} from "react-router-dom";
-import { NotFound } from './NotFound';
-import View from "./View";
-import Edit from './Edit';
-import Navbar from './Navbar';
+import { NotFound } from './Pages/NotFound';
+import View from "./Pages/View";
+import Edit from './Pages/Edit';
+import Navbar from './Components/Navbar';
 
 function App() {
   const navigate = useNavigate();
   return (
     <div className="App">
-      <Navbar />
+      <Navbar/>
       <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="/home" element={<Navigate replace to="/"/>} />

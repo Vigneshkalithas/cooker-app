@@ -1,4 +1,4 @@
-const carouselData = [
+export const carouselData = [
   { image: "https://wallpaperaccess.com/full/3086384.jpg" },
   {
     image:
