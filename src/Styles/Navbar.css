@@ -1,8 +1,9 @@
 .navbar-head{
     width: 100%;
-    height:85px;
-    background-color: transparent;
-    color: #27324b;
+    height:70px;
+    background-color:#272727;
+    /* color: #27324b; */
+    color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
