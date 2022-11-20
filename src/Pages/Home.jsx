@@ -2,40 +2,65 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import"../Styles/Home.css";
 import Carosuel from "../Components/Carosuel";
+import { ReviewData } from "../Helper/ReviewData";
 
 function Home() {
   const navigate = useNavigate();
+  
  
   return (
  
   <>
-  
-      
-   {/* <div className="Home-head">
-        
-        <div className="home-content">
-          <h1>LEARN TO COOK FROM <br/>
-          HOME LIKE A CHEF</h1>
-          <p>Make the family kitchen like a restaurant kitchen more productive at <br/>
-          home by cooking for the family or starting a culinary business.With our<br/>
-          recipe recipes!</p>
-             <button onClick={()=>navigate("/list")}>Explore Cooking Recipies</button>
-             <div className="sm-img-head">
-              {data.map((x)=>{
-                return(
-                 
-                  <img src={x} className="home-sm-images"/>
-                 
-                )
-              })}
-             </div>
-        </div>
-        <div className="home-image">
-          <img src="https://img.freepik.com/free-vector/isometric-italian-restaurant-kitchen-concept_1284-40632.jpg?w=740&t=st=1668685699~exp=1668686299~hmac=6f60cdfd51b37a194fbdeb8b78b8846d886d41b91cb580252905ae358366723f" alt="home-img"/>
-        </div>
-   </div> */}
    <Carosuel/>
-    </>
+   <div className="home-head">
+    <div className="left-content">
+      <h1>Learn to cook from <br/>home like a chef</h1>
+      <p>Make the family kitchen like a restaurant kitchen more productive at <br/>
+      home by cooking for the family or starting a culinary business. With our<br/>
+      recipe recipes!</p>
+    </div>
+    <div className="right-images">
+      <div className="card1">
+        <img src="https://img.freepik.com/free-photo/vertical-shot-traditional-indian-paneer-butter-masala-cheese-cottage-curry-black-surface_181624-32001.jpg?w=360&t=st=1668938458~exp=1668939058~hmac=432b72061a5db08b88b80d1b2bddc67ef84646b78be0c4be9897ad8aa4001591"
+        alt="sm-card-1"/>
+        <div className="sm-details-1">
+          <h3>Special</h3>
+          <h3>Recipes</h3>
+        </div>
+        </div>
+      <div className="card2">
+      <div className="sm-details-2">
+        <h3>Recive a free</h3>
+        <h3>Gift cards</h3>
+      </div>
+      <img src="https://img.freepik.com/free-photo/indian-chicken-biryani-served-terracotta-bowl-with-yogurt-white-background-selective-focus_466689-72551.jpg?w=360&t=st=1668939000~exp=1668939600~hmac=f2f37d455b1d962a54ffcf47829d2bb275cccb31cfb1c4a908d0aab506789172" alt="sm-card-2"/>
+
+      </div>
+
+    </div>
+   </div>
+
+   <div className="review">
+
+    <h4>Some Good Reviews</h4>
+ <h2>What People Say</h2>
+
+
+ <div className="review-card-head">
+  {ReviewData.map((x)=>{
+    return (
+      <>
+      <div className="r-card-1">
+  <img src={x.dp} alt={x.name}/>
+  <p>{x.review}</p>
+<h5>-{x.name}</h5>
+</div>
+      </>
+    )
+  })}
+ </div>
+   </div>
+  </>
   );
 }
 
