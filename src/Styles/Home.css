@@ -16,7 +16,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 100vh;
+    margin: 6rem;
 }
 .home-head h1{
     margin: 1rem 0rem;
@@ -103,6 +103,7 @@ height: 530px;
     gap: 1.5rem;
     margin: 2rem;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 .r-card-1{
     width: 300px;
@@ -126,5 +127,16 @@ height: 530px;
 }
 
 @media only screen and (max-width: 600px) {
-    
+    .home-head{
+        display: flex;
+        flex-direction: column;
+        margin: 3rem;
+        text-align: center;
+        gap: 1rem;
+    }
+    .right-images{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
 }

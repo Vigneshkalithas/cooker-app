@@ -1,6 +1,7 @@
 import React , { useState, useEffect} from 'react';
 import {useNavigate} from "react-router-dom";
 import axios from 'axios';
+import { Config } from "../Config/Config";
 import { data }  from "../Helper/RecipeData";
 
 function ReceipeList() {
@@ -31,15 +32,15 @@ function ReceipeList() {
 ]
 
 function View(id){
-console.log(id)
+// console.log(id)
 navigate(`/view/${id}`)
 }
 let fetchData = async () => {
   try{
-    let result =  await axios.get('https://61f1b9df072f86001749f34c.mockapi.io/cooker')
+    let result =  await axios.get(`${Config.api}/recipe`)
     
     setRecipe(result.data);
-    // console.log(result.data);
+   
   }
   catch(error){
     console.log(error);
@@ -65,8 +66,10 @@ useEffect(() => {
       {recipe.map((x,index)=>{
         return(
           <>
-<div className='card-list'  onClick={()=>View(x.id)}>
-        <div key={index}><img className="img-card" src={x.recipePoster} alt="card-image"></img></div>
+<div className='card-list'  onClick={()=>View(x._id)}>
+        <div key={index}>
+          <img className="img-card" src={x.recipePoster} alt="card-image"></img>
+        </div>
         <div>
           <h2>{x.recipeName}</h2>
           <h4><i class="fa-regular fa-clock"></i> {x.cookingTime} min</h4>
@@ -78,8 +81,6 @@ useEffect(() => {
         )
       })}
       
-      {/* <div className='card-list'></div> */}
-     
     </div>
     </>
   )

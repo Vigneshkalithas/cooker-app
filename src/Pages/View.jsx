@@ -1,7 +1,9 @@
 import React, { useState , useEffect } from 'react';
+import "../Styles/View.css"
 import {useParams} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
 import axios from 'axios';
+import { Config } from "../Config/Config";
 
 
 function View() {
@@ -12,7 +14,7 @@ function View() {
 
     let fetchData = async () => {
         try{
-          let result =  await axios.get(`https://61f1b9df072f86001749f34c.mockapi.io/cooker/${id}`)
+          let result =  await axios.get(`${Config.api}/recipe/${id}`)
           setViewData(result.data);
         
     
@@ -37,8 +39,9 @@ function View() {
   const handleDelete = async(id) => {
     try{
       alert("Are you want to delete")
-          await axios.delete(`https://61f1b9df072f86001749f34c.mockapi.io/cooker/${id}`)
-          navigate("/list")
+      navigate("/list")
+          await axios.delete(`${Config.api}/recipe/${id}`)
+      
          
     }
     catch(error){

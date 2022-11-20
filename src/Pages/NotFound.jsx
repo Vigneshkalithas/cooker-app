@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 export function NotFound() {
+  const navigate = useNavigate()
   return (
     <div className="not-found-head">
       <img
@@ -6,6 +9,9 @@ export function NotFound() {
         alt="404 not found"
         className="not-found"
       />
+      <div>
+        <button className="back-btn" onClick={()=>navigate("/home")}>Home</button>
+      </div>
     </div>
   );
 }

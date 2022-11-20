@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 import axios from 'axios';
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { Config } from '../Config/Config';
 
 const formValidationSchema = yup.object({
     recipeName: yup.string().required("Enter recipe name"),
@@ -32,7 +33,7 @@ function Edit() {
     let fetchData = async () => {
         try{
     
-          let result =  await axios.get(`https://61f1b9df072f86001749f34c.mockapi.io/cooker/${id}`)
+          let result =  await axios.get(`${Config.api}/recipe/${id}`)
           setDetails(result.data);
           formik.setValues(result.data);
           const numberOfInputFields = [];
@@ -72,8 +73,10 @@ useFormik({
 
     onSubmit: async (values) =>{
       try{
-        await axios.put(`https://61f1b9df072f86001749f34c.mockapi.io/cooker/${id}`,values);
         alert("data edited successfully")
+        navigate("/list")
+        await axios.patch(`${Config.api}/recipe/${id}`,values);
+        
         // console.log(values)
     }
       catch(error){

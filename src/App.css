@@ -110,8 +110,8 @@ button[type="submit"]{
 .card-head{
   display: flex;
   justify-content: center;
-  gap:20px;
-  /* flex-wrap: wrap; */
+  gap:1.2rem;
+  flex-wrap: wrap;
 
 }
 
@@ -137,7 +137,7 @@ margin: 1rem;
 }
 .card-list p{
   color: black;
-  font-size: 15px;
+  font-size: 0.9rem;
 }
 
 
@@ -163,7 +163,9 @@ margin: 1rem;
   display:flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
+
 
 textarea{
   resize: none;
@@ -181,117 +183,13 @@ textarea{
 .card-list h2 h3 p{
   margin: 0.3rem 0rem;
 }
-.view-card-head{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  gap: 2rem;
-}
-.view-card{
-  width: 700px;
-  height:600px;
-  background-color:#ffe4bd;
-  border-radius: 10px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-}
-
-.view-img-head{
-  display: flex;
-  justify-content: center;
-  
-  /* align-items: center; */
-  
-  
-}
-
- .view-img-head img{ 
-  width:250px;
-  height:250px;
-  border-radius: 10px;
-  margin: 2rem 0rem;
-}
-.view-texts{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0.2rem;
-}
-.view-p , .view-h1, .view-h2 , .view-h5{
-  margin: 0.3rem;
-}
-.view-p{
-  text-align: center;
-}
-
-.back-list{
-  background-color: #fd7a22;
-  border: none; 
-  cursor: pointer;
-  width: 45px;
-  color: white;
-  height: 45px;
-  border-radius: 50%;
-  margin: 0.5rem 0.5rem;
-
-}
-.edit-list{
-  background-color: black;
-  border: none; 
-  cursor: pointer;
-  width: 45px;
-  color: white;
-  height: 45px;
-  border-radius: 50%;
-  margin: 0.5rem 0.5rem;
-}
-.del-list{
-  background-color:#ce7858;
-  border: none; 
-  cursor: pointer;
-  width: 45px;
-  color: white;
-  height: 45px;
-  border-radius: 50%;
-  margin: 0.5rem 0.5rem;
-}
 
 
-.steps-card-head{
-  width: 350px;
-  height:600px;
-  background-color: #b3a0cd;
-  border-radius: 10px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 
 
-}
-.steps-card{
-display: flex;
-flex-direction: column;
-margin: 1rem 2rem;
-}
 
-.step-head{
-  margin: 1rem 0rem;
-}
 
-.step-ul{
-  margin: 0rem 2rem;
-  list-style: none;
-  
-}
-.step-ul li{
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin: .5rem 0rem;
-  
-}
-.sm-err{
-  margin: 0rem 0.5rem;
-}
+
 
 
 .load{
@@ -326,4 +224,52 @@ margin: 1rem 2rem;
   box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
   color: #fff;
   transform: translateY(-7px);
+}
+.back-btn{
+  width: 150px;
+  height: 40px;
+  border: none;
+  background-color: #272727;
+  color: white;
+  border-radius: 5px;
+  margin: 0rem 0rem 2rem  0rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .not-found-head{
+  
+    height: 100vh;
+  }
+  .not-found{
+ width: 400px;
+ height: 300px;
+
+}
+.card-list{
+  width: 400px;
+  height:520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.card-list p{
+  font-size: 0.7rem;
+  margin: 1rem;
+}
+.card-list h3{
+  font-size: 1.1rem;
+  margin: 0.5rem;
+}
+.card-list h2{
+  margin: 0.5rem;
+  font-size: 1.5rem;
+}
+.img-card{
+  width: 280px;
+  height: 240px;
+  border-radius: 10px;
+  margin: 0rem 1rem;
+}
 }

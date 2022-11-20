@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { useNavigate } from 'react-router-dom';
-
+import { Config } from "../Config/Config";
 
 const formValidationSchema = yup.object({
   recipeName: yup.string().required("Enter recipe name"),
@@ -36,7 +36,7 @@ function Step() {
       validationSchema: formValidationSchema,
       onSubmit: async (values) => {
         const res = await fetch(
-          "https://61f1b9df072f86001749f34c.mockapi.io/cooker",
+          `${Config.api}/recipe`,
           {
             method: "POST",
             headers: {
@@ -47,7 +47,7 @@ function Step() {
           }
         );
         alert("Data was submited successfully")
-        console.log(res);
+        // console.log(res);
         navigate("/list")
       },
     });
