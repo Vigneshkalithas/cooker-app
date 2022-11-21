@@ -26,7 +26,7 @@ const navigate = useNavigate();
       },
       validationSchema: formValidationSchema,
       onSubmit: async (values) => {
-        //    alert(JSON.stringify(values))
+           alert(JSON.stringify(values))
         //    const result = await axios.post(`${Config.api}/` , values)
       },
 })

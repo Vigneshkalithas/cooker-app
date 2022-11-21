@@ -8,7 +8,7 @@ import axios from 'axios';
 
 
 const formValidationSchema = yup.object({
-    userName: yup.string().required("Enter user name"),
+    username: yup.string().required("Enter user name"),
     password: yup.string().required("Enter password"),
     role: yup.string().required("select anyone"),
    
@@ -27,8 +27,9 @@ function Signup() {
       },
       validationSchema: formValidationSchema,
       onSubmit: async (values) => {
-           alert(JSON.stringify(values))
-        //    const result = await axios.post(`${Config.api}/` , values)
+        alert(JSON.stringify(values))
+        const result = await axios.post(`${Config.api}/user/signup` , values)
+        alert("success")
       },
     })
   return (
@@ -39,7 +40,7 @@ function Signup() {
   <form className='signup-form' onSubmit={handleSubmit}>
     <div className='fieldBox'>
     <label>Username</label>
-  <input
+    <input
             type="text"
             name="username"
             placeholder="Enter user name"
