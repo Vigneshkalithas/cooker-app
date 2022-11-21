@@ -9,6 +9,7 @@ import View from "./Pages/View";
 import Edit from './Pages/Edit';
 import Navbar from './Components/Navbar';
 import Login from "./Pages/Login";
+import Signup from './Pages/Signup';
 
 function App() {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/login" element={<Login/>}/>
+      <Route path="/signup" element={<Signup/>}/>
       <Route path="/home" element={<Navigate replace to="/"/>} />
       <Route path="/list" element={<ReceipeList/>} />
       <Route path="/create" element={<Step/>} />

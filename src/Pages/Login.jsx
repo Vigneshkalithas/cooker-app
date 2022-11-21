@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import "../Styles/Login.css";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { Config } from "../Config/Config";
 import axios from 'axios';
 
@@ -16,7 +16,7 @@ const formValidationSchema = yup.object({
   });
 
 function Login() {
-
+const navigate = useNavigate();
     const { values, handleChange, handleBlur, touched, handleSubmit, errors } =
     useFormik({
       initialValues: {
@@ -66,10 +66,9 @@ function Login() {
             {errors.password && touched.password ? errors.password : null}
           </small>
     </div>
-    
  <button type="submit">submit</button>
   </form>
-  <div className='para-login'>
+  <div className='para-login' onClick={()=>navigate("/signup")}>
     <p>I'dont have and account ?</p>
     <p>Sign up</p>
   </div>
