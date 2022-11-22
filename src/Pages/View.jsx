@@ -1,15 +1,16 @@
-import React, { useState , useEffect } from 'react';
+import React, { useState , useEffect , useContext } from 'react';
 import "../Styles/View.css"
 import {useParams} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
 import axios from 'axios';
 import { Config } from "../Config/Config";
+import { MyContext } from '../context';
 
 
 function View() {
     let { id } = useParams();
     const navigate = useNavigate()
-    // console.log(id)
+     const {user , userRole,isAuthenticated } = useContext(MyContext);
     const [viewData , setViewData] = useState("")
 
     let fetchData = async () => {
@@ -28,7 +29,13 @@ function View() {
      
       
       useEffect(() => {
-        fetchData();
+        if(!user){
+          navigate("/")
+        }
+        else{
+          fetchData();
+        }
+      
       }, [])
       function GoEdit(id){
         navigate(`/edit/${id}`)
@@ -65,8 +72,10 @@ function View() {
     
         <div className='view-card'>
         <button className='back-list' onClick={()=>navigate("/list")}><i className="fa-solid fa-arrow-left"></i></button>
-        <button className='edit-list' onClick={()=>GoEdit(id)}><i className="fa-regular fa-pen-to-square"></i></button>
-        <button className='del-list' onClick={()=>handleDelete(id)}><i class="fa-solid fa-trash"></i></button>
+        {userRole=="admin" || userRole=="user" ? 
+        <button className='edit-list' onClick={()=>GoEdit(id)}><i className="fa-regular fa-pen-to-square"></i></button> : ""}
+        {userRole=="admin" ? 
+        <button className='del-list' onClick={()=>handleDelete(id)}><i class="fa-solid fa-trash"></i></button> : ""}
    <div className='view-img-head'>
     <img src ={viewData.recipePoster} alt="view-image"/>
    </div>

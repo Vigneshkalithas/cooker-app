@@ -1,8 +1,10 @@
-import React,{useState} from 'react';
+import React,{useState , useContext , useEffect} from 'react';
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { useNavigate } from 'react-router-dom';
 import { Config } from "../Config/Config";
+import { MyContext } from '../context';
+
 
 const formValidationSchema = yup.object({
   recipeName: yup.string().required("Enter recipe name"),
@@ -17,10 +19,18 @@ const formValidationSchema = yup.object({
 
 
 function Step() {
+  const {user , userRole , isAuthenticated} = useContext(MyContext)
   const navigate = useNavigate()
   const [inputFields, setInputFields] = useState([""]);
   const [steps , setSteps] = useState([]) ;
   steps.length = inputFields.length;
+
+  useEffect(() => {
+    if (!isAuthenticated || userRole == "ReadOnly") {
+      alert("Not Authorized");
+      navigate("/");
+    }
+  }, [isAuthenticated]);
   const { values, handleChange, handleBlur, touched, handleSubmit, errors } =
     useFormik({
       initialValues: {

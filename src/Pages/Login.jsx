@@ -1,33 +1,60 @@
-import React,{useState} from 'react';
+import React,{useState  , useContext} from 'react';
 import "../Styles/Login.css";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Config } from "../Config/Config";
 import axios from 'axios';
+import { toast } from "react-toastify";
+import { MyContext } from '../context';
 
 
 
 const formValidationSchema = yup.object({
-    userName: yup.string().required("Enter user name"),
-    password: yup.string().required("Enter password"),
+    username: yup.string().required("Name is Required"),
+    password: yup.string().required("Password is Required"),
    
     
   });
 
 function Login() {
+  
 const navigate = useNavigate();
+const { setUser , isAuthenticated ,  setIsAuthenticated } = useContext(MyContext)
     const { values, handleChange, handleBlur, touched, handleSubmit, errors } =
     useFormik({
       initialValues: {
-        userName:"",
+        username:"",
         password:"",
        
       },
       validationSchema: formValidationSchema,
       onSubmit: async (values) => {
-           alert(JSON.stringify(values))
-        //    const result = await axios.post(`${Config.api}/` , values)
+         
+  try{
+    console.log(JSON.stringify(values))
+    const result = await axios.post(`${Config.api}/user/login` , values)
+    const resData = await result.json()
+    setUser(resData)
+    setIsAuthenticated(true)    
+    const Token = result.data.sessionData.token    
+    localStorage.setItem("react-app-token", Token);
+    navigate("/")
+     
+    if (result.data.error) {
+      
+      toast.error("Error: " + result.data.error);
+    } else {
+      toast.success(result.data.message);
+      // navigate("/")
+      alert("succes")
+    }
+   
+  }
+  catch(error){
+    console.log(error)
+  }
+          
       },
 })
       
@@ -42,14 +69,14 @@ const navigate = useNavigate();
     <label>Username</label>
   <input
             type="text"
-            name="userName"
+            name="username"
             placeholder="Enter user name"
             onChange={handleChange}
             onBlur={handleBlur}
-            value={values.userName}
+            value={values.username}
           />
            <small>
-            {errors.userName && touched.userName ? errors.userName : null}
+            {errors.username && touched.username ? errors.username : null}
           </small>
     </div>
     <div className='fieldBox'>

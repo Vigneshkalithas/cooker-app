@@ -1,23 +1,24 @@
-import React,{useState} from 'react';
+import React,{useState  , useContext} from 'react';
 import "../Styles/Signup.css";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { useNavigate } from 'react-router-dom';
 import { Config } from "../Config/Config";
 import axios from 'axios';
+import { toast } from "react-toastify";
 
 
 const formValidationSchema = yup.object({
-    username: yup.string().required("Enter user name"),
-    password: yup.string().required("Enter password"),
-    role: yup.string().required("select anyone"),
+    username: yup.string().required("Name is Required"),
+    password: yup.string().required("Password is required"),
+    role: yup.string().required("Choose anyone"),
    
     
   });
 
 function Signup() {
     const navigate = useNavigate()
-    const { values, handleChange, handleBlur, touched, handleSubmit, errors } =
+    const { values, handleChange, handleBlur, resetForm ,touched, handleSubmit, errors } =
     useFormik({
       initialValues: {
         username:"",
@@ -27,9 +28,17 @@ function Signup() {
       },
       validationSchema: formValidationSchema,
       onSubmit: async (values) => {
-        alert(JSON.stringify(values))
+        // console.log(JSON.stringify(values))
         const result = await axios.post(`${Config.api}/user/signup` , values)
-        alert("success")
+        toast.success(result.data.message);
+        const resData = await result.json()
+       setUser(resData)
+       setIsAuthenticated(true)    
+       const Token = result.data.sessionData.token    
+      localStorage.setItem("react-app-token", Token);
+      navigate("/")
+        resetForm();
+        navigate("/home")
       },
     })
   return (
