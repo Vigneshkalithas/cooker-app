@@ -9,9 +9,12 @@ const AppContext = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
+    if (localStorage.getItem("user")) {
+      setUser(JSON.parse(localStorage.getItem("user")));
+      setIsAuthenticated(true);
+    }
     if (isAuthenticated && user) {
-      console.log(user);
-      fetch(`${Config}/user/auth`, {
+      fetch(`${Config.api}/user/auth`, {
         method: "POST",
         headers: {
           Accept: "application/json",
