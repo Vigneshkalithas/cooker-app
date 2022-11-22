@@ -97,6 +97,9 @@ function Login() {
             <p>I'dont have and account ?</p>
             <p>Sign up</p>
           </div>
+          <div className="" onClick={() => navigate("/forgetpassword")}>
+            <p>Forget Password</p>
+          </div>
         </div>
       </div>
     </>

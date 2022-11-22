@@ -14,6 +14,7 @@ import Step from "./Pages/Step";
 import View from "./Pages/View";
 import { MyContext } from "./context";
 import Notallowed from "./Components/Notallowed";
+import ForgetPassword from "./Pages/ForgetPassword";
 
 function App() {
   const { user, userRole, isAuthenticated } = useContext(MyContext);
@@ -24,6 +25,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/unauthorized" element={<Notallowed />} />
+        <Route path="/forgetpassword" element={<Notallowed />} />
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />} />
 
