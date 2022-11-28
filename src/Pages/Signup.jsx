@@ -34,16 +34,22 @@ function Signup() {
 
     validationSchema: formValidationSchema,
     onSubmit: async (values) => {
-      const result = await axios.post(`${Config.api}/user/signup`, values);
-      console.log(result);
-      toast.success(result.data.message);
-      // const resData = await result.json();
-      setUser(result.data);
-      setIsAuthenticated(true);
-      const Token = result.data.sessionData.token;
-      localStorage.setItem("react-app-token", Token);
-      resetForm();
-      navigate("/login");
+      try {
+        const result = await axios.post(`${Config.api}/user/signup`, values);
+        if (result.data.message == "user already exists") {
+          toast.error(result.data.message);
+        }
+
+        setUser(result.data);
+        setIsAuthenticated(true);
+        // const Token = result.data.sessionData.token;
+        // localStorage.setItem("react-app-token", Token);
+        navigate("/login");
+        toast.success(result.data.message);
+        resetForm();
+      } catch (error) {
+        console.log(error);
+      }
     },
   });
   return (

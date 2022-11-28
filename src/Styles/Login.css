@@ -1,28 +1,29 @@
-.login-head{
+.login-head {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     text-align: center;
-   
+
 }
-.login{
+
+.login {
     width: 400px;
     height: 420px;
     padding: 1rem;
     background-color: whitesmoke;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    
+    box-shadow: rgba(33, 33, 68, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
 }
 
-.login-form{
+.login-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.para-login{
+.para-login {
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
@@ -31,7 +32,15 @@
     justify-content: center;
 }
 
-.para-login :hover{
+.para-login :hover {
     color: darkblue;
 }
 
+.fp p {
+    cursor: pointer;
+
+}
+
+.fp p:hover {
+    color: darkblue;
+}

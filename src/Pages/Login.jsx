@@ -36,7 +36,7 @@ function Login() {
         try {
           const result = await axios.post(`${Config.api}/user/login`, values);
           const resData = await result.data;
-          console.log(resData);
+          // console.log(resData);
           setUser(resData.sessionData);
           setIsAuthenticated(true);
           const Token = result.data.sessionData.token;
@@ -94,10 +94,10 @@ function Login() {
             <button type="submit">submit</button>
           </form>
           <div className="para-login" onClick={() => navigate("/signup")}>
-            <p>I'dont have and account ?</p>
+            <p>I'dont have and account |</p>
             <p>Sign up</p>
           </div>
-          <div className="" onClick={() => navigate("/forgetpassword")}>
+          <div className="fp" onClick={() => navigate("/forgetpassword")}>
             <p>Forget Password</p>
           </div>
         </div>

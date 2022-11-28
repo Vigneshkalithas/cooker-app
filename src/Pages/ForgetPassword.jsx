@@ -16,6 +16,8 @@ const formValidationSchema = yup.object({
 
 function ForgetPassword() {
   const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const { values, handleChange, handleBlur, touched, handleSubmit, errors } =
     useFormik({
       initialValues: {
@@ -25,7 +27,14 @@ function ForgetPassword() {
       validationSchema: formValidationSchema,
       onSubmit: async (values) => {
         try {
-          const result = await axios.post(`${Config.api}/user/login`, values);
+          const result = await axios.post(
+            `${Config.api}/user/forgetpassword`,
+            values
+          );
+          console.log(result);
+          if (result.status == 200) {
+            navigate(`/verify/${result.data.user._id}`);
+          }
         } catch (error) {
           console.log(error);
         }
@@ -56,7 +65,7 @@ function ForgetPassword() {
               <label>Email</label>
               <input
                 type="email"
-                name="eamil"
+                name="email"
                 placeholder="Enter email"
                 onChange={handleChange}
                 onBlur={handleBlur}

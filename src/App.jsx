@@ -15,6 +15,7 @@ import View from "./Pages/View";
 import { MyContext } from "./context";
 import Notallowed from "./Components/Notallowed";
 import ForgetPassword from "./Pages/ForgetPassword";
+import Verify from "./Pages/Verify";
 
 function App() {
   const { user, userRole, isAuthenticated } = useContext(MyContext);
@@ -26,6 +27,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/unauthorized" element={<Notallowed />} />
         <Route path="/forgetpassword" element={<ForgetPassword />} />
+        <Route path="/verify/:id" element={<Verify />} />
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />} />
 
