@@ -38,15 +38,15 @@ function Signup() {
         const result = await axios.post(`${Config.api}/user/signup`, values);
         if (result.data.message == "user already exists") {
           toast.error(result.data.message);
+        } else {
+          setUser(result.data);
+          setIsAuthenticated(true);
+          // const Token = result.data.sessionData.token;
+          // localStorage.setItem("react-app-token", Token);
+          navigate("/login");
+          toast.success(result.data.message);
+          resetForm();
         }
-
-        setUser(result.data);
-        setIsAuthenticated(true);
-        // const Token = result.data.sessionData.token;
-        // localStorage.setItem("react-app-token", Token);
-        navigate("/login");
-        toast.success(result.data.message);
-        resetForm();
       } catch (error) {
         console.log(error);
       }

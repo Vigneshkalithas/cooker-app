@@ -48,7 +48,7 @@ function Login() {
           if (result.data.error) {
             toast.error("Error: " + result.data.error);
           } else {
-            toast.success(result.data.message);
+            // toast.success(result.data.message);
             // navigate("/")
           }
         } catch (error) {
