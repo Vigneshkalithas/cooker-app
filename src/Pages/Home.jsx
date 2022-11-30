@@ -27,13 +27,10 @@ function Home() {
             Learn to cook from <br />
             home like a chef
           </h1>
-          <p>
+          <p className="p-w">
             Make the family kitchen like a restaurant kitchen more productive at{" "}
-            <br />
             home by cooking for the family or starting a culinary business. With
-            our
-            <br />
-            recipe recipes!
+            our recipe recipes!
           </p>
         </div>
         <div className="right-images">
